@@ -2,12 +2,14 @@
  "items": [
   {
    "no": 1,
-   "tags": [],
-   "name": "압축팩",
-   "price": 0,
+   "tags": [
+    "옷장정리"
+   ],
+   "name": "로렌드 진공 압축팩 + 펌프 세트",
+   "price": 13900,
    "price_label": "",
    "date": "",
-   "image": "",
+   "image": "images/01.jpg",
    "link": "https://link.coupang.com/a/iHywkBxhFQ",
    "video": ""
   },
