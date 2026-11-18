@@ -1,26 +1,144 @@
 {
-  "items": [
-    {
-      "no": 1,
-      "tags": ["예시", "주방"],
-      "name": "예시 상품 1",
-      "price": 12900,
-      "price_label": "",
-      "date": "2026-11-18",
-      "image": "assets/products/sample-1.jpg",
-      "link": "https://www.coupang.com/",
-      "video": ""
-    },
-    {
-      "no": 2,
-      "tags": ["예시", "겨울"],
-      "name": "예시 상품 2",
-      "price": 34900,
-      "price_label": "쿠팡 판매가",
-      "date": "2026-11-19",
-      "image": "assets/products/sample-2.jpg",
-      "link": "",
-      "video": ""
-    }
-  ]
+ "items": [
+  {
+   "no": 1,
+   "tags": [
+    "겨울",
+    "단열"
+   ],
+   "name": "문풍지",
+   "price": 0,
+   "price_label": "",
+   "date": "",
+   "image": "assets/products/01.jpg",
+   "link": "",
+   "video": ""
+  },
+  {
+   "no": 2,
+   "tags": [
+    "겨울",
+    "단열"
+   ],
+   "name": "단열뽁뽁이",
+   "price": 0,
+   "price_label": "",
+   "date": "",
+   "image": "assets/products/02.jpg",
+   "link": "",
+   "video": ""
+  },
+  {
+   "no": 3,
+   "tags": [
+    "겨울",
+    "난방"
+   ],
+   "name": "전기요",
+   "price": 0,
+   "price_label": "",
+   "date": "",
+   "image": "assets/products/03.jpg",
+   "link": "",
+   "video": ""
+  },
+  {
+   "no": 4,
+   "tags": [
+    "겨울",
+    "생활"
+   ],
+   "name": "미니가습기",
+   "price": 0,
+   "price_label": "",
+   "date": "",
+   "image": "assets/products/04.jpg",
+   "link": "",
+   "video": ""
+  },
+  {
+   "no": 5,
+   "tags": [
+    "겨울",
+    "생활"
+   ],
+   "name": "보풀제거기",
+   "price": 0,
+   "price_label": "",
+   "date": "",
+   "image": "assets/products/05.jpg",
+   "link": "",
+   "video": ""
+  },
+  {
+   "no": 6,
+   "tags": [
+    "겨울",
+    "생활"
+   ],
+   "name": "물먹는하마",
+   "price": 0,
+   "price_label": "",
+   "date": "",
+   "image": "assets/products/06.jpg",
+   "link": "",
+   "video": ""
+  },
+  {
+   "no": 7,
+   "tags": [
+    "겨울",
+    "단열"
+   ],
+   "name": "단열암막커튼",
+   "price": 0,
+   "price_label": "",
+   "date": "",
+   "image": "assets/products/07.jpg",
+   "link": "",
+   "video": ""
+  },
+  {
+   "no": 8,
+   "tags": [
+    "겨울",
+    "난방"
+   ],
+   "name": "수면양말",
+   "price": 0,
+   "price_label": "",
+   "date": "",
+   "image": "assets/products/08.jpg",
+   "link": "",
+   "video": ""
+  },
+  {
+   "no": 9,
+   "tags": [
+    "겨울",
+    "난방"
+   ],
+   "name": "곰발바닥발난로",
+   "price": 0,
+   "price_label": "",
+   "date": "",
+   "image": "assets/products/09.jpg",
+   "link": "",
+   "video": ""
+  },
+  {
+   "no": 10,
+   "tags": [
+    "겨울",
+    "난방"
+   ],
+   "name": "보온물주머니",
+   "price": 0,
+   "price_label": "",
+   "date": "",
+   "image": "assets/products/10.jpg",
+   "link": "",
+   "video": ""
+  }
+ ]
 }
