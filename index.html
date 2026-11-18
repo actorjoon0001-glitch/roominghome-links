@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- CONFIG:HEAD START — tools/sync_config.py 가 config.json 으로 자동 생성. 직접 고치지 마세요 -->
+<title>내 브랜드 · 영상 속 상품 링크</title>
+<meta name="description" content="영상 속 상품, 번호로 바로 찾아보세요">
+<meta name="theme-color" content="#111827">
+<link rel="icon" href="assets/logo.png">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="내 브랜드">
+<meta property="og:title" content="내 브랜드 · 영상 속 상품 링크">
+<meta property="og:description" content="영상 속 상품, 번호로 바로 찾아보세요">
+<meta property="og:image" content="assets/og.jpg">
+<meta name="twitter:image" content="assets/og.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+<style id="brand-vars">:root{--bg:#111827;--card:#1b2435;--primary:#FFD43B;--on-primary:#111827;--secondary:#4DABF7;--text:#ffffff;--muted:#9aa6bb;--font-title:"Black Han Sans";--font-body:"Nanum Gothic"}</style>
+<!-- CONFIG:HEAD END -->
+<style>
+:root{--radius:16px;--line:color-mix(in srgb,var(--text) 14%,var(--bg));--card2:color-mix(in srgb,var(--text) 6%,var(--card))}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:var(--font-body),-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+[hidden]{display:none!important}
+.wrap{max-width:520px;margin:0 auto;padding:28px 16px calc(32px + env(safe-area-inset-bottom))}
+.title{font-family:var(--font-title),sans-serif;font-weight:400;letter-spacing:-.01em}
+
+header{text-align:center}
+.logo{width:96px;height:96px;border-radius:24px;display:block;margin:0 auto 12px;object-fit:cover;box-shadow:0 0 0 2px var(--line)}
+h1{margin:0;font-size:30px;color:var(--primary)}
+.intro{margin:6px 0 16px;font-size:15px;font-weight:700}
+.socials{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.sns{display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:999px;background:#fff;color:#111827;
+  text-decoration:none;font-weight:800;font-size:14px}
+.sns svg{width:20px;height:20px;flex:none}
+.sns:active{transform:scale(.97)}
+
+.notice{margin:20px 0 16px;padding:12px 14px;border:2px solid var(--primary);border-radius:12px;
+  background:color-mix(in srgb,var(--primary) 9%,transparent);font-size:13.5px;font-weight:700;line-height:1.55}
+.notice b{color:var(--primary)}
+
+.search{position:sticky;top:0;z-index:5;margin:0 -16px 12px;padding:10px 16px;
+  background:color-mix(in srgb,var(--bg) 94%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.search label{position:relative;display:block}
+.search input{width:100%;height:48px;padding:0 44px;border-radius:12px;border:2px solid var(--line);
+  background:var(--card);color:var(--text);font:inherit;font-size:16px;font-weight:700;outline:none}
+.search input::placeholder{color:var(--muted);font-weight:400}
+.search input:focus{border-color:var(--secondary)}
+.search .ic{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:20px;height:20px;color:var(--muted)}
+.search .clear{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:36px;height:36px;border:0;border-radius:8px;
+  background:transparent;color:var(--muted);font-size:20px;cursor:pointer;display:none}
+.search.has .clear{display:block}
+.chips{display:flex;gap:6px;overflow-x:auto;margin:10px -16px 0;padding:0 16px 2px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;padding:6px 12px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--text);
+  font:inherit;font-size:13px;font-weight:700;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--secondary);border-color:var(--secondary);color:#fff}
+
+.list{display:flex;flex-direction:column;gap:14px;margin:0;padding:0;list-style:none}
+.card{position:relative;display:grid;grid-template-columns:112px 1fr;gap:14px;padding:14px;border-radius:var(--radius);
+  background:var(--card);border:2px solid transparent;scroll-margin-top:120px;transition:border-color .3s,box-shadow .3s}
+.card.hl{border-color:var(--primary);box-shadow:0 0 0 4px color-mix(in srgb,var(--primary) 25%,transparent);animation:pulse 1.2s ease 2}
+@keyframes pulse{50%{box-shadow:0 0 0 9px color-mix(in srgb,var(--primary) 12%,transparent)}}
+.no{position:absolute;top:-8px;left:-6px;min-width:44px;height:44px;padding:0 8px;border-radius:12px;background:var(--primary);
+  color:var(--on-primary);display:flex;align-items:center;justify-content:center;font-family:var(--font-title),sans-serif;font-size:26px;
+  box-shadow:0 4px 10px rgba(0,0,0,.3);z-index:1}
+.no small{font-size:14px;margin-left:1px}
+.ph{width:112px;height:112px;border-radius:12px;overflow:hidden;background:var(--card2)}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ph.empty{display:flex;align-items:center;justify-content:center}
+.ph.empty img{width:64%;height:64%;object-fit:contain;opacity:.5;border-radius:10px}
+.body{min-width:0;display:flex;flex-direction:column}
+.tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px}
+.tag{font-size:11px;font-weight:700;color:var(--secondary)}
+.name{margin:0;font-size:16px;font-weight:800;line-height:1.35;word-break:keep-all;overflow-wrap:anywhere}
+.price{margin-top:6px;font-family:var(--font-title),sans-serif;font-size:21px;color:var(--primary);line-height:1.2}
+.price .lb{font-family:var(--font-body),sans-serif;font-size:12px;font-weight:700;color:var(--secondary);margin-left:4px}
+.when{font-size:11.5px;color:var(--muted);margin-top:2px}
+.acts{grid-column:1/-1;display:flex;align-items:center;gap:12px}
+.buy{flex:1;display:flex;align-items:center;justify-content:center;height:50px;border-radius:12px;background:var(--primary);
+  color:var(--on-primary);text-decoration:none;font-size:16px;font-weight:800}
+.buy:active{transform:scale(.98)}
+.buy.off{background:var(--card2);color:var(--muted);pointer-events:none}
+.vid{flex:none;display:inline-flex;align-items:center;gap:4px;padding:8px 2px;font-size:13px;font-weight:700;color:var(--secondary);text-decoration:none}
+.vid:hover{text-decoration:underline}
+
+.state{padding:40px 16px;text-align:center;border-radius:var(--radius);background:var(--card);color:var(--muted);font-weight:700}
+.state .big{display:block;font-family:var(--font-title),sans-serif;font-size:22px;color:var(--text);margin-bottom:6px;font-weight:400}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translate(-50%,20px);opacity:0;
+  padding:10px 16px;border-radius:999px;background:#fff;color:#111827;font-weight:800;font-size:14px;transition:.25s;pointer-events:none;z-index:9;white-space:nowrap}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+footer{margin-top:28px;text-align:center;color:var(--muted);font-size:12.5px;line-height:1.7}
+footer p{margin:0 0 6px}
+footer .warn{color:var(--text);opacity:.85;font-weight:700}
+@media (min-width:480px){.card{grid-template-columns:128px 1fr}.ph{width:128px;height:128px}.name{font-size:17px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card.hl{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img class="logo" id="logo" alt="" width="96" height="96" hidden>
+    <h1 class="title" id="brandName"></h1>
+    <p class="intro" id="tagline"></p>
+    <div class="socials" id="socials"></div>
+  </header>
+
+  <p class="notice" id="notice" role="note" hidden><b>📢 고지</b> <span id="disclosure"></span></p>
+
+  <div class="search" id="searchBar">
+    <label>
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+      <input id="q" type="search" inputmode="search" enterkeyhint="search" autocomplete="off" aria-label="상품 찾기">
+      <button class="clear" id="clear" type="button" aria-label="검색어 지우기">×</button>
+    </label>
+    <div class="chips" id="chips" hidden></div>
+  </div>
+
+  <ul class="list" id="list" aria-live="polite"></ul>
+  <div class="state" id="state"><span class="big">불러오는 중…</span></div>
+
+  <footer>
+    <p class="warn" id="footerNotice"></p>
+    <p id="copy"></p>
+  </footer>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var list = $("list"), state = $("state"), q = $("q"), bar = $("searchBar"), chipsEl = $("chips");
+  var C = {}, T = {}, items = [], activeTag = "";
+
+  var ICONS = {
+    youtube: ['유튜브', '<svg viewBox="0 0 28 20"><rect width="28" height="20" rx="5" fill="#FF0000"/><path d="M11 5.5v9l8-4.5z" fill="#fff"/></svg>'],
+    instagram: ['인스타그램', '<svg viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#feda75"/><stop offset=".5" stop-color="#d62976"/><stop offset="1" stop-color="#4f5bd5"/></linearGradient></defs><rect width="24" height="24" rx="6" fill="url(#ig)"/><rect x="5.5" y="5.5" width="13" height="13" rx="4" fill="none" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="3.2" fill="none" stroke="#fff" stroke-width="2"/><circle cx="16.6" cy="7.4" r="1.1" fill="#fff"/></svg>'],
+    tiktok: ['틱톡', '<svg viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="#000"/><path d="M14.2 5c.3 1.8 1.4 3 3.3 3.2v2.4a5.8 5.8 0 0 1-3.3-1.1v4.9a4.3 4.3 0 1 1-4.3-4.3h.5v2.4a1.9 1.9 0 1 0 1.4 1.9V5z" fill="#fff"/></svg>']
+  };
+
+  function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+  function safeUrl(u){ return /^https?:\/\//i.test(u || "") ? u : ""; }
+  function won(n){ n = Number(n); return isFinite(n) && n > 0 ? n.toLocaleString("ko-KR") + "원" : ""; }
+  function ymd(d){ return String(d || "").slice(0,10).replace(/-/g, "."); }
+  function norm(s){ return String(s || "").toLowerCase().replace(/\s+/g, ""); }
+  function getJSON(u){ return fetch(u, {cache: "no-cache"}).then(function(r){ if (!r.ok) throw r.status; return r.json(); }); }
+
+  function applyConfig(){
+    var b = C.brand || {}, col = C.colors || {}, root = document.documentElement.style;
+    var map = {background:"--bg", surface:"--card", primary:"--primary", on_primary:"--on-primary", secondary:"--secondary", text:"--text", muted:"--muted"};
+    Object.keys(map).forEach(function(k){ if (col[k]) root.setProperty(map[k], col[k]); });
+    $("brandName").textContent = b.name || "";
+    $("tagline").textContent = b.tagline || "";
+    if (b.logo){ $("logo").src = b.logo; $("logo").alt = (b.name || "") + " 로고"; $("logo").hidden = false; }
+    var s = C.social || {};
+    $("socials").innerHTML = ["youtube", "instagram", "tiktok"].filter(function(k){ return safeUrl(s[k]); }).map(function(k){
+      return '<a class="sns" href="' + esc(s[k]) + '" target="_blank" rel="noopener">' + ICONS[k][1] + ICONS[k][0] + '</a>';
+    }).join("");
+    if (C.disclosure){ $("disclosure").textContent = C.disclosure; $("notice").hidden = false; }
+    q.placeholder = T.search_placeholder || "상품 찾기";
+    $("footerNotice").textContent = T.footer_notice || "";
+    $("copy").textContent = "© " + (b.name || "") + (s.youtube && /@[\w.-]+/.test(s.youtube) ? " · " + s.youtube.match(/@[\w.-]+/)[0] : "");
+  }
+
+  function card(it){
+    var img = it.image
+      ? '<div class="ph"><img src="' + esc(it.image) + '" alt="' + esc(it.name) + '" loading="lazy" decoding="async" width="600" height="600"></div>'
+      : '<div class="ph empty">' + (C.brand && C.brand.logo ? '<img src="' + esc(C.brand.logo) + '" alt="" loading="lazy">' : '') + '</div>';
+    var link = safeUrl(it.link), vid = safeUrl(it.video), price = won(it.price);
+    var tags = (it.tags || []).length ? '<div class="tags">' + it.tags.map(function(t){ return '<span class="tag">#' + esc(t) + '</span>'; }).join("") + '</div>' : '';
+    return '<li class="card" id="p' + it.no + '">' +
+      '<span class="no" aria-label="' + it.no + '번">' + it.no + '<small>번</small></span>' + img +
+      '<div class="body">' + tags + '<h2 class="name">' + esc(it.name) + '</h2>' +
+        (price ? '<div class="price">' + price + (it.price_label ? '<span class="lb">' + esc(it.price_label) + '</span>' : '') + '</div>' : '') +
+        (it.date && price ? '<div class="when">' + esc((T.price_basis || "{date} 기준").replace("{date}", ymd(it.date))) + '</div>' : '') +
+      '</div><div class="acts">' +
+        (link ? '<a class="buy" href="' + esc(link) + '" target="_blank" rel="sponsored noopener">' + esc(T.buy_button || "구매하러 가기") + '</a>'
+              : '<span class="buy off">링크 준비 중</span>') +
+        (vid ? '<a class="vid" href="' + esc(vid) + '" target="_blank" rel="noopener">▶ ' + esc(T.video_link || "영상 보기") + '</a>' : '') +
+      '</div></li>';
+  }
+
+  function renderChips(){
+    var seen = {}, tags = [];
+    items.forEach(function(it){ (it.tags || []).forEach(function(t){ if (!seen[t]){ seen[t] = 1; tags.push(t); } }); });
+    chipsEl.hidden = tags.length < 2;
+    chipsEl.innerHTML = ['<button class="chip" type="button" data-tag="" aria-pressed="' + (!activeTag) + '">전체</button>']
+      .concat(tags.map(function(t){ return '<button class="chip" type="button" data-tag="' + esc(t) + '" aria-pressed="' + (activeTag === t) + '">#' + esc(t) + '</button>'; })).join("");
+  }
+
+  function render(){
+    var raw = q.value.trim(), key = norm(raw), num = raw.replace(/\s|번/g, "");
+    bar.classList.toggle("has", !!raw);
+    var shown = items.filter(function(it){
+      if (activeTag && (it.tags || []).indexOf(activeTag) < 0) return false;
+      if (!key) return true;
+      var hay = norm(it.name) + "|" + norm((it.tags || []).join("|"));
+      if (/^\d+$/.test(num) && String(it.no) === num) return true;
+      return hay.indexOf(key) > -1;
+    });
+    list.innerHTML = shown.map(card).join("");
+    if (!items.length){
+      state.innerHTML = '<span class="big">' + esc(T.empty || "곧 첫 상품이 올라와요") + '</span>';
+      state.hidden = false;
+    } else if (!shown.length){
+      state.innerHTML = '<span class="big">결과가 없어요</span>상품명·태그·번호를 다시 확인해주세요.';
+      state.hidden = false;
+    } else state.hidden = true;
+  }
+
+  var toastT;
+  function toast(msg){ var t = $("toast"); t.textContent = msg; t.classList.add("on");
+    clearTimeout(toastT); toastT = setTimeout(function(){ t.classList.remove("on"); }, 2200); }
+
+  function goHash(){
+    var m = decodeURIComponent(location.hash.slice(1)).match(/^p?(\d+)/);
+    if (!m || !items.length) return;
+    if (q.value || activeTag){ q.value = ""; activeTag = ""; renderChips(); render(); }
+    var el = $("p" + Number(m[1]));
+    if (!el){ toast(m[1] + "번 상품은 아직 없어요"); return; }
+    document.querySelectorAll(".card.hl").forEach(function(c){ c.classList.remove("hl"); });
+    requestAnimationFrame(function(){ el.scrollIntoView({block:"center"}); el.classList.add("hl"); });
+  }
+
+  var timer;
+  q.addEventListener("input", function(){ clearTimeout(timer); timer = setTimeout(render, 80); });
+  q.addEventListener("keydown", function(e){
+    if (e.key !== "Enter") return;
+    var n = q.value.replace(/\s|번/g, "");
+    q.blur();
+    if (/^\d+$/.test(n) && $("p" + Number(n))){ q.value = ""; render();
+      if (location.hash === "#" + Number(n)) goHash(); else location.hash = Number(n); }
+  });
+  $("clear").addEventListener("click", function(){ q.value = ""; render(); q.focus(); });
+  chipsEl.addEventListener("click", function(e){
+    var b = e.target.closest(".chip"); if (!b) return;
+    activeTag = b.getAttribute("data-tag") || ""; renderChips(); render();
+  });
+  window.addEventListener("hashchange", goHash);
+
+  getJSON("config.json").catch(function(){ return {}; }).then(function(cfg){
+    C = cfg || {}; T = C.texts || {}; applyConfig();
+    return getJSON("products.json").catch(function(){ return {items: []}; });
+  }).then(function(d){
+    var arr = Array.isArray(d) ? d : (d && d.items) || [];
+    items = arr.filter(function(it){ return it && it.no != null && it.name; });
+    items.sort(function(a, b){ return C.sort === "asc" ? a.no - b.no : b.no - a.no; });
+    renderChips(); render(); goHash();
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+{
+  "brand": {
+    "name": "내 브랜드",
+    "tagline": "영상 속 상품, 번호로 바로 찾아보세요",
+    "logo": "assets/logo.png",
+    "og_image": "assets/og.jpg"
+  },
+  "colors": {
+    "background": "#111827",
+    "surface": "#1b2435",
+    "primary": "#FFD43B",
+    "on_primary": "#111827",
+    "secondary": "#4DABF7",
+    "text": "#ffffff",
+    "muted": "#9aa6bb"
+  },
+  "fonts": {
+    "title": "Black Han Sans",
+    "body": "Nanum Gothic",
+    "body_weights": "400;700;800"
+  },
+  "social": {
+    "youtube": "https://www.youtube.com/@your_channel",
+    "instagram": "",
+    "tiktok": ""
+  },
+  "disclosure": "이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.",
+  "domain": "",
+  "texts": {
+    "page_title": "영상 속 상품 링크",
+    "buy_button": "쿠팡에서 보기",
+    "video_link": "영상 보기",
+    "search_placeholder": "상품명·태그·번호로 찾기 (예: 3)",
+    "empty": "곧 첫 상품이 올라와요",
+    "price_basis": "업로드 시점({date}) 기준",
+    "footer_notice": "가격·재고는 수시로 바뀌니 구매 전 상세페이지를 확인하세요"
+  },
+  "sort": "desc"
+}

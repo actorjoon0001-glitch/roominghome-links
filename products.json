@@ -1,0 +1,26 @@
+{
+  "items": [
+    {
+      "no": 1,
+      "tags": ["예시", "주방"],
+      "name": "예시 상품 1",
+      "price": 12900,
+      "price_label": "",
+      "date": "2026-11-18",
+      "image": "assets/products/sample-1.jpg",
+      "link": "https://www.coupang.com/",
+      "video": ""
+    },
+    {
+      "no": 2,
+      "tags": ["예시", "겨울"],
+      "name": "예시 상품 2",
+      "price": 34900,
+      "price_label": "쿠팡 판매가",
+      "date": "2026-11-19",
+      "image": "assets/products/sample-2.jpg",
+      "link": "",
+      "video": ""
+    }
+  ]
+}

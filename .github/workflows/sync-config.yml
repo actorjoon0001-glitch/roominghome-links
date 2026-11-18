@@ -1,0 +1,27 @@
+# config.json 을 고치면 index.html 의 제목·공유 미리보기(OG)·색상과 CNAME 을 자동으로 맞춰줍니다.
+name: sync config
+
+on:
+  push:
+    branches: [main]
+    paths: [config.json, index.html, tools/sync_config.py, assets/**]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/sync_config.py
+      - name: commit if changed
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "config.json 반영 (자동)"
+            git push
+          fi
