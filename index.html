@@ -192,9 +192,9 @@ footer .warn{color:var(--text);opacity:.85;font-weight:700}
   }
 
   function renderChips(){
-    var seen = {}, tags = [];
-    items.forEach(function(it){ (it.tags || []).forEach(function(t){ if (!seen[t]){ seen[t] = 1; tags.push(t); } }); });
-    chipsEl.hidden = tags.length < 2;
+    var cnt = {}, tags = [];   // 상품 2개 이상에 붙은 태그만 필터 칩으로 (1개짜리는 카드에만 표시)
+    items.forEach(function(it){ (it.tags || []).forEach(function(t){ cnt[t] = (cnt[t] || 0) + 1; if (cnt[t] === 2) tags.push(t); }); });
+    chipsEl.hidden = !tags.length;
     chipsEl.innerHTML = ['<button class="chip" type="button" data-tag="" aria-pressed="' + (!activeTag) + '">전체</button>']
       .concat(tags.map(function(t){ return '<button class="chip" type="button" data-tag="' + esc(t) + '" aria-pressed="' + (activeTag === t) + '">#' + esc(t) + '</button>'; })).join("");
   }
